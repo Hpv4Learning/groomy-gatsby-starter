@@ -1,8 +1,8 @@
-import React from "react";
+import React, { ButtonHTMLAttributes } from "react";
 import styled from "styled-components";
 import { ThemeType, useCustomTheme } from "../styles/theme";
 
-type BaseButtonProps = {
+type BaseButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
   color?: "orange" | "purple";
   size?: "xl" | "md" | "sm";
   variant?: "contained" | "outlined";
