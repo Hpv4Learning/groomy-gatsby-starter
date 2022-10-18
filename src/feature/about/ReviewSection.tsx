@@ -1,6 +1,8 @@
 import { graphql, useStaticQuery } from "gatsby";
+import { getImage } from "gatsby-plugin-image";
 import React from "react";
 import { Container, SubTitle } from "../../components";
+import { Review } from "./Review";
 
 export const ReviewSection = () => {
   const data: Queries.ChefsQuery = useStaticQuery(query);
@@ -11,11 +13,21 @@ export const ReviewSection = () => {
           I Nostri Chef
         </SubTitle>
         <div className='flex align-items-center justify-content-between flex-wrap spacer-xl'>
-          <div className='div'>review</div>
-          <div className='div'>review</div>
-          <div className='div'>review</div>
+          {data.allSanityChef.nodes.map((chef) => {
+            const image = chef.image?.asset
+              ? getImage(chef.image.asset)
+              : undefined;
+            return (
+              <Review
+                key={chef.complete_name}
+                name={chef.complete_name}
+                image={image}
+              />
+            );
+          })}
         </div>
       </Container>
+      <div className='spacer-xxxl'></div>
     </div>
   );
 };
