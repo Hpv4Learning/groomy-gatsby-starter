@@ -1,7 +1,9 @@
+import { graphql, useStaticQuery } from "gatsby";
 import React from "react";
 import { Container, SubTitle } from "../../components";
 
 export const ReviewSection = () => {
+  const data: Queries.ChefsQuery = useStaticQuery(query);
   return (
     <div className='spacer-xxxl'>
       <Container>
@@ -17,3 +19,18 @@ export const ReviewSection = () => {
     </div>
   );
 };
+
+const query = graphql`
+  query Chefs {
+    allSanityChef {
+      nodes {
+        complete_name
+        image {
+          asset {
+            gatsbyImageData
+          }
+        }
+      }
+    }
+  }
+`;
