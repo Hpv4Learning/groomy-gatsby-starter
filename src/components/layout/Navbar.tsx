@@ -1,5 +1,9 @@
+import { Link } from "gatsby";
+import { StaticImage } from "gatsby-plugin-image";
 import React from "react";
 import styled from "styled-components";
+import { Container } from "../Container";
+import { Label } from "../Typography";
 
 const StyledBox = styled.div({
   height: "72px",
@@ -39,7 +43,33 @@ const StyledBox = styled.div({
 export const Navbar = () => {
   return (
     <>
-      <StyledBox as='nav'></StyledBox>
+      <StyledBox as='nav'>
+        <Container className='nav-container'>
+          <div className='nav-logo'>
+            <StaticImage src='../../images/logo.png' alt='Groomy Logo' />
+          </div>
+          <div className='nav-links'>
+            <Link to='/'>
+              <div className='nav-label'>
+                <Label>Home</Label>
+              </div>
+            </Link>
+
+            <Link to='/about/'>
+              <div className='nav-label'>
+                <Label>Chi siamo</Label>
+              </div>
+            </Link>
+          </div>
+        </Container>
+      </StyledBox>
+      <div
+        style={{
+          height: "72px",
+          width: "100%",
+          zIndex: -1,
+        }}
+      />
     </>
   );
 };

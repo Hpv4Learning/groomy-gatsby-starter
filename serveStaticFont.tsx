@@ -79,7 +79,7 @@ export const serveStaticFont: GatsbySSR["onRenderBody"] = ({
     <link
       key='Poppins-Medium-Bold'
       rel='preload'
-      href='/fonts/Medium.ttf'
+      href='/fonts/Poppins-Medium.ttf'
       as='font'
       crossOrigin='anonymous'
     />,
@@ -94,7 +94,7 @@ export const serveStaticFont: GatsbySSR["onRenderBody"] = ({
     <link
       key='Poppins-Bold'
       rel='preload'
-      href='/fonts/Regular.ttf'
+      href='/fonts/Poppins-Regular.ttf'
       as='font'
       crossOrigin='anonymous'
     />,
