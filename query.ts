@@ -27,3 +27,31 @@ export type CategoryQueryProps = {
     };
   };
 };
+
+export const allRecipeQuery = `
+{
+  allSanityRecipe {
+    nodes {
+      id
+      titolo
+      category {
+        titolo
+      }
+    }
+  }
+}
+`;
+
+export type AllRecipeQueryProps = {
+  data: {
+    allSanityRecipe: {
+      nodes: {
+        titolo: NonNullable<Queries.SanityRecipe["titolo"]>;
+        id: NonNullable<Queries.SanityRecipe["id"]>;
+        category: {
+          titolo: NonNullable<Queries.SanityRecipe["category"]>["titolo"];
+        };
+      }[];
+    };
+  };
+};

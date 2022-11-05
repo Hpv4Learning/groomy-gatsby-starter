@@ -1,5 +1,10 @@
 import { GatsbyNode } from "gatsby";
-import { categoryQuery, CategoryQueryProps } from "./query";
+import {
+  allRecipeQuery,
+  AllRecipeQueryProps,
+  categoryQuery,
+  CategoryQueryProps,
+} from "./query";
 import { createSlugFromTitle } from "./src/utils";
 import { resolve } from "path";
 
@@ -12,6 +17,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
   const { createPage } = actions;
 
   const allCategories = (await graphql(categoryQuery)) as CategoryQueryProps;
+  const allRecipes = (await graphql(allRecipeQuery)) as AllRecipeQueryProps;
 
   allCategories.data.allSanityCategory.nodes.forEach((category) => {
     const slug = createSlugFromTitle(category.titolo);
@@ -41,6 +47,19 @@ export const createPages: GatsbyNode["createPages"] = async ({
             articles: recipes.map((item) => item._id),
           },
         });
+      });
+    }
+  });
+
+  allRecipes.data.allSanityRecipe.nodes.forEach((recipe) => {
+    const categorySlug = createSlugFromTitle(recipe?.category?.titolo);
+    if (categorySlug) {
+      createPage({
+        path: `/${categorySlug}/${createSlugFromTitle(recipe.titolo)}/`,
+        component: resolve("./src/templates/Article.tsx"),
+        context: {
+          id: recipe.id,
+        },
       });
     }
   });
