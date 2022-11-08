@@ -8,10 +8,14 @@ dotenv({
 const config: GatsbyConfig = {
   siteMetadata: {
     title: `Groomy`,
-    siteUrl: `https://www.yourdomain.tld`,
-    metaDescription:
+    siteUrl:
+      process.env.NODE_ENV === "production"
+        ? `https://groomygatsby.gatsbyjs.io/`
+        : "http://localhost:8000/",
+    description:
       "Impara dai migliori chef italiani ricette orientali, funzionali ed estive",
     author: "@hpv4learning",
+    image: "/logo.png",
   },
   // More easily incorporate content into your pages through automatic TypeScript type generation and better GraphQL IntelliSense.
   // If you use VSCode you can also use the GraphQL plugin
