@@ -1,8 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import { ThemeType } from "../../styles/theme";
 
-const StyledBox = styled.footer<{ theme: ThemeType }>`
+const StyledBox = styled.footer`
   display: flex;
   flex-direction: column;
   align-items: center;

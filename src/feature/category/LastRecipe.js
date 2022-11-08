@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-const Wrapper = styled("div")<any>({
+const Wrapper = styled("div")({
   height: "calc( 100vh - 72px )",
   width: "100%",
   display: "flex",

@@ -1,11 +1,6 @@
 import React from "react";
-import { GlobalSeoProps } from "../types";
 
-type Props = GlobalSeoProps & {
-  authorName?: string;
-};
-
-export const useArticleSchema = ({}: Props) => {
+export const useArticleSchema = ({}) => {
   // const articleJson = React.useMemo(() => {
   //   return [
   //     {

@@ -9,7 +9,7 @@ import {
   RoundedImageContainer,
 } from "../../components";
 import { StaticImage } from "gatsby-plugin-image";
-const Wrapper = styled("div")<any>({
+const Wrapper = styled("div")({
   height: "calc( 100vh - 72px )",
   width: "100%",
   display: "flex",

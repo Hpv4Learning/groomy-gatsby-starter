@@ -1,21 +1,7 @@
 import styled from "styled-components";
-import { ThemeType } from "../styles/theme";
 
-type TypographyProps = {
-  color?: string;
-  weight?: keyof ThemeType["fontWeight"];
-  textAlign?:
-    | "start"
-    | "end"
-    | "left"
-    | "right"
-    | "center"
-    | "justify"
-    | "match-parent";
-};
-
-export const Typography = styled.div<TypographyProps>(
-  ({ theme }: { theme: ThemeType }) =>
+export const Typography = styled.div(
+  ({ theme }) =>
     ({ weight, color, textAlign }) => ({
       fontWeight: weight ? theme.fontWeight[weight] : 400,
       color: color ? color : "inherit",

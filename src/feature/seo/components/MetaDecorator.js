@@ -1,7 +1,7 @@
 import React from "react";
 import { DefaultMetaProps } from "../types";
 
-export const MetaDecorator = ({}: DefaultMetaProps) => {
+export const MetaDecorator = ({}) => {
   return <></>;
 };
 

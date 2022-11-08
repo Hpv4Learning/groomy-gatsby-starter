@@ -1,8 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import { ThemeType } from "../styles/theme";
 
-const CustomBox = styled("article")<any>(({ theme }: { theme: ThemeType }) => ({
+const CustomBox = styled("article")(({ theme }) => ({
   padding: "16px",
   maxWidth: "333px",
   width: "100%",

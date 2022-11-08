@@ -1,8 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import { ThemeType } from "../../styles/theme";
 
-const CustomBox = styled("div")<any>(({ theme }: { theme: ThemeType }) => ({
+const CustomBox = styled("div")(({ theme }) => ({
   background: theme.colors.yellow[300],
   display: "flex",
   flexDirection: "column",

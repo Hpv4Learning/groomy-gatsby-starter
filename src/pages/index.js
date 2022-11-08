@@ -1,7 +1,5 @@
 import * as React from "react";
-import type { HeadFC } from "gatsby";
 import styled from "styled-components";
-import { ThemeType } from "../styles/theme";
 import {
   Button,
   Container,
@@ -12,7 +10,7 @@ import {
   SubTitle,
 } from "../components";
 
-const Prova = styled.div(({ theme }: { theme: ThemeType }) => ({
+const Prova = styled.div(({ theme }) => ({
   width: "400px",
   height: "400px",
   background: theme.colors.orange[400],
@@ -57,4 +55,4 @@ const IndexPage = () => {
 
 export default IndexPage;
 
-export const Head: HeadFC = () => <title>Home Page</title>;
+export const Head = () => <title>Home Page</title>;

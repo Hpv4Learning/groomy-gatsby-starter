@@ -1,15 +1,10 @@
 import { StaticImage } from "gatsby-plugin-image";
 import React from "react";
 import styled from "styled-components";
-import { ThemeType } from "../../styles/theme";
 import { RoundedImageContainer } from "../../components/RoundedImageContainer";
 import { Typography } from "../../components/Typography";
 
-const StyledBox = styled("div")<any>(function ({
-  theme,
-}: {
-  theme: ThemeType;
-}) {
+const StyledBox = styled("div")(function ({ theme }) {
   return {
     background: theme.colors.yellow[400],
     height: "calc( 100vh - 72px )",

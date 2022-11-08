@@ -1,8 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import { ThemeType } from "../../styles/theme";
 
-const ReviewBox = styled("div")(({ theme }: { theme: ThemeType }) => ({
+const ReviewBox = styled("div")(({ theme }) => ({
   border: "1px solid",
   borderColor: theme.colors.gray[300],
   borderRadius: "16px",

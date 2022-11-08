@@ -1,15 +1,8 @@
-import React, { ButtonHTMLAttributes } from "react";
+import React from "react";
 import styled from "styled-components";
-import { ThemeType, useCustomTheme } from "../styles/theme";
+import { useCustomTheme } from "../styles/theme";
 
-type BaseButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
-  color?: "orange" | "purple";
-  size?: "xl" | "md" | "sm";
-  variant?: "contained" | "outlined";
-  isRounded?: true;
-};
-
-const getButtonSize = (size: BaseButtonProps["size"]) => {
+const getButtonSize = (size) => {
   let props;
   switch (size) {
     case "sm":
@@ -29,6 +22,7 @@ const getButtonSize = (size: BaseButtonProps["size"]) => {
         padding: "0px 12px",
         fontSize: "16px",
       };
+      break;
     default:
       props = {
         width: "fit-content",
@@ -42,13 +36,7 @@ const getButtonSize = (size: BaseButtonProps["size"]) => {
   return props;
 };
 
-const useHoverProps = ({
-  color,
-  variant,
-}: {
-  variant: BaseButtonProps["variant"];
-  color: NonNullable<BaseButtonProps["color"]>;
-}) => {
+const useHoverProps = ({ color, variant }) => {
   const theme = useCustomTheme();
   let hoverProps;
   switch (variant) {
@@ -69,8 +57,8 @@ const useHoverProps = ({
   return hoverProps;
 };
 
-export const ButtonBase = styled.button<BaseButtonProps>(
-  ({ theme }: { theme: ThemeType }) =>
+export const ButtonBase = styled.button(
+  ({ theme }) =>
     ({ color = "orange", size, variant, isRounded }) => {
       const buttonColor = theme.colors[color][400];
       const sizeProps = getButtonSize(size);
@@ -101,13 +89,7 @@ ButtonBase.defaultProps = {
   variant: "contained",
 };
 
-type Props = {
-  children: React.ReactNode;
-  leftIcon?: React.ReactElement;
-  rightIcon?: React.ReactElement;
-};
-
-export const Button = (props: Props & BaseButtonProps) => {
+export const Button = (props) => {
   const { children, leftIcon, rightIcon, ...rest } = props;
   return (
     <ButtonBase {...rest}>

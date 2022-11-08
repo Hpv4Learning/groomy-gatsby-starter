@@ -1,11 +1,6 @@
 import styled from "styled-components";
-import { ThemeType } from "../styles/theme";
 
-export const RoundedImageContainer = styled<any>("div")(function ({
-  theme,
-}: {
-  theme: ThemeType;
-}) {
+export const RoundedImageContainer = styled("div")(function ({ theme }) {
   return {
     borderRadius: "50%",
     maxWidth: "657px",
